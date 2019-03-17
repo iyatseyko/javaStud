@@ -7,7 +7,7 @@ public class PolyndromTest {
 
     @Test
     public void verifyIsTheWordAPolyndrom() {
-        String word = "123abcdcba321ut";
+        String word =  "qwerewq";
 
         Assert.assertTrue("" + word + " is not a polyndrom", checkIsTheWordAPolindrom(word));
 

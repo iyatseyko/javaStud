@@ -1,21 +1,25 @@
 package JavaMethods;
 
+import com.sun.tools.javac.util.JavacMessages;
+
 public class Polyndrom {
 
-    public static Boolean checkIsTheWordAPolindrom(String word) {
+    public static Boolean checkIsTheWordAPolindrom(String word)  {
 
-        char[] arr = word.toCharArray();
+        try {
+            char[] arr = word.toCharArray();
+            int length = arr.length - 1;
 
-        int length = arr.length - 1;
-        boolean polindrom = true;
-
-        for (int k = 0; k <= Math.floor(length/2); k++) {
-                    if (arr[k] != arr[length-k]) {
-                        polindrom = false;
-                        break;
-                    }
+            for (int k = 0; k <= Math.floor(length/2); k++) {
+                if (arr[k] != arr[length-k]) {
+                return false;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
-        return polindrom;
+
+        return true;
     }
 }
 
