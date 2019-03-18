@@ -1,8 +1,6 @@
 package JavaMethods;
 
-import com.sun.tools.javac.util.JavacMessages;
-
-public class Polyndrom {
+public class Palindrome {
 
     public static Boolean checkIsTheWordAPolindrom(String word)  {
 
