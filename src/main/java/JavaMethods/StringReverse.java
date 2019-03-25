@@ -4,6 +4,9 @@ public class StringReverse {
 
     public static String stringReverse (String inputString) {
 
+        if (inputString == null || inputString == "") {
+            return "";
+        }
         int length = inputString.length();
         String reverseString = "";
 

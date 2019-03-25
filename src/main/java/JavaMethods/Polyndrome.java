@@ -1,10 +1,12 @@
 package JavaMethods;
 
-public class Palindrome {
+public class Polyndrome {
 
     public static Boolean checkIsTheWordAPolindrom(String word)  {
 
-        try {
+        if (word == null || word == ""){
+            return false;
+        }
             char[] arr = word.toCharArray();
             int length = arr.length - 1;
 
@@ -12,11 +14,7 @@ public class Palindrome {
                 if (arr[k] != arr[length-k]) {
                 return false;
                 }
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
         }
-
         return true;
     }
 }
