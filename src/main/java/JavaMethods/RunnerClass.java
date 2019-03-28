@@ -34,10 +34,10 @@ public class RunnerClass {
 
         switch (operation) {
             case 1:
-                MathOperation.min(integers);
+                System.out.println(MathOperation.min(integers));
                 break;
             case 2:
-                MathOperation.max(integers);
+                System.out.println (MathOperation.max(integers));
                 break;
             case 3:
                 System.out.println(MathOperation.average(integers));

@@ -1,18 +1,14 @@
 package JavaMethods;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.nio.file.Files;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.nio.file.Files.newBufferedReader;
 
 public class Employee {
 
     String firstName;
     String lastName;
-    String birthDate;
+    String birthDate; // useDate
     int id;
 
     public Employee(String firstName, String lastName, String birthDate, int id) {
@@ -60,11 +56,33 @@ public class Employee {
     }
 
 
-    //private static List<Employee> readEmployeeDataFromCSV(String fileName) {
-    //    List<Employee> employees = new ArrayList<Employee>();
+    public static List<Employee> readEmployeeDataFromCSV(String pathName) {
+        List<Employee> employees = new ArrayList<Employee>();
+        try {
 
-    //    String filePath = "/Users/irayatseyko/IdeaProjects/JavaStudyProject/src/main/resources/employee.csv";
+        File file = new File(pathName);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line = br.readLine();
 
+            while (line != null) {
+                String[] attributes = line.split(";");
+                Employee employee = createEmployee(attributes);
+                employees.add(employee);
+                line = br.readLine();
+            }
+        } catch (IOException e){
+            System.out.println(e);
+        }
+        return employees;
+    }
 
+    private static Employee createEmployee(String[] employeeData) {
 
+        int id = Integer.parseInt(employeeData[0]);
+        String  firstName = employeeData[1];
+        String lastName = employeeData[2];
+        String birthDate = employeeData[3];
+
+        return new Employee(firstName, lastName, birthDate, id);
+    }
 }
