@@ -14,15 +14,15 @@ public class RunnerClass {
         int[] integers = new int[i];
 
         String s = "";
-        for (int in : integers) {
-            s += in;
-        }
-        ;
 
         for (int k = 0; k < integers.length; k++) {
             System.out.println("Enter " + (k + 1) + " number");
             integers[k] = scan.nextInt();
         }
+
+        for (int number : integers) {
+            s += number;
+        };
 
         for (int number : integers) {
             System.out.print(number + " ");
