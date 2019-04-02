@@ -60,8 +60,7 @@ public class Employee {
         List<Employee> employees = new ArrayList<Employee>();
         try {
 
-        File file = new File(pathName);
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        BufferedReader br = new BufferedReader(new FileReader(pathName));
         String line = br.readLine();
 
             while (line != null) {
@@ -70,8 +69,13 @@ public class Employee {
                 employees.add(employee);
                 line = br.readLine();
             }
-        } catch (IOException e){
-            System.out.println(e);
+        } catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        catch (EOFException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getStackTrace());
         }
         return employees;
     }
