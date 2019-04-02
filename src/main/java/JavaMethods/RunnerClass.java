@@ -1,5 +1,7 @@
 package JavaMethods;
 
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class RunnerClass {
@@ -8,24 +10,24 @@ public class RunnerClass {
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Enter the arrays length");
-        int i = scan.nextInt();
+        System.out.println("If you want to use math operations - please, type the array of numbers;\nOtherwise insert a string value for Polyndrome and StringReverse methods.\nFor the array you should define a length at first");
 
-        int[] integers = new int[i];
+        String inputSting = "";
+        int[] integers = null;
+        if (scan.hasNextInt()){
 
-        String s = "";
+            integers = new int[scan.nextInt()];
 
-        for (int k = 0; k < integers.length; k++) {
-            System.out.println("Enter " + (k + 1) + " number");
-            integers[k] = scan.nextInt();
-        }
+            for (int counter = 1; counter < integers.length; counter++) {
+                System.out.println("Please, enter ".concat(Integer.toString(counter)).concat(" number of array"));
+                integers[counter] = scan.nextInt();
 
-        for (int number : integers) {
-            s += number;
-        };
+                System.out.print("You array is " + Arrays.toString(integers));
 
-        for (int number : integers) {
-            System.out.print(number + " ");
+
+            }
+        } else {
+            inputSting = scan.nextLine();
         }
 
         System.out.println("Enter 1 to choose min operation, 2 for max, 3 for average, 4 for reverse, 5 for polyndrome");
@@ -43,11 +45,11 @@ public class RunnerClass {
                 System.out.println(MathOperation.average(integers));
                 break;
             case 4:
-                System.out.println(s);
-                System.out.println(Polyndrome.checkIsTheWordAPolindrom(s));
+                System.out.println();
+                System.out.println(Polyndrome.checkIsTheWordAPolindrom(inputSting));
                 break;
             case 5:
-                System.out.println(StringReverse.stringReverse(s));
+                System.out.println(StringReverse.stringReverse(inputSting));
                 break;
             default:
                 System.out.println("The other operation was chosen");
