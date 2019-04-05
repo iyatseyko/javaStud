@@ -1,59 +1,74 @@
 package JavaMethods;
 
-import java.awt.*;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RunnerClass {
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("If you want to use math operations - please, type the array of numbers;\nOtherwise insert a string value for Polyndrome and StringReverse methods.\nFor the array you should define a length at first");
-
-        String inputSting = "";
         int[] integers = null;
-        if (scan.hasNextInt()){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("If you want to use math operations - please, type 1; \nOtherwise type 2 for Polyndrome and StringReverse methods.");
+    try {
 
+        int number = scan.nextInt();
+
+        if (number == 1) {
+            System.out.println("You choose math operations with numbers. Now, type array of numbers.\nFor the array you should define a length at first. Please, type the array's length");
             integers = new int[scan.nextInt()];
+            System.out.println("Lenth of your array is ".concat(Integer.toString(integers.length)));
+            for (int counter = 0; counter < integers.length; counter++) {
+            System.out.println("Please, enter ".concat(Integer.toString(counter + 1)).concat(" number of array"));
+            integers[counter] = scan.nextInt();
+            }
+            System.out.print("Your array is ".concat(Arrays.toString(integers)));
 
-            for (int counter = 1; counter < integers.length; counter++) {
-                System.out.println("Please, enter ".concat(Integer.toString(counter)).concat(" number of array"));
-                integers[counter] = scan.nextInt();
+            System.out.println("Enter 1 to choose min operation, 2 for max, 3 for average");
 
-                System.out.print("You array is " + Arrays.toString(integers));
+            int operation = scan.nextInt();
 
+            switch (operation) {
+                case 1:
+                    System.out.println(MathOperation.min(integers));
+                    break;
+                case 2:
+                    System.out.println(MathOperation.max(integers));
+                    break;
+                case 3:
+                    System.out.println(MathOperation.average(integers));
+                    break;
+                default:
+                    System.out.println("Sorry, but you type incorrect number !!");
+                    break;
+            }
 
+        } else if (number == 2) {
+            System.out.println("Please, type a string value");
+                scan.nextLine();
+             String inputSting = scan.nextLine();
+
+            System.out.println("Enter 1 to choose Polindrome, 2 for StringReverse");
+            int operation = scan.nextInt();
+
+            switch (operation) {
+                case 1:
+                    System.out.println();
+                    System.out.println(Polyndrome.checkIsTheWordAPolindrom(inputSting));
+                    break;
+                case 2:
+                    System.out.println(StringReverse.stringReverse(inputSting));
+                    break;
+                default:
+                    System.out.println("Sorry, but you type incorrect number !!");
+                    break;
             }
         } else {
-            inputSting = scan.nextLine();
+            System.out.println("Sorry, but you type incorrect number !!");
         }
-
-        System.out.println("Enter 1 to choose min operation, 2 for max, 3 for average, 4 for reverse, 5 for polyndrome");
-
-        int operation = scan.nextInt();
-
-        switch (operation) {
-            case 1:
-                System.out.println(MathOperation.min(integers));
-                break;
-            case 2:
-                System.out.println (MathOperation.max(integers));
-                break;
-            case 3:
-                System.out.println(MathOperation.average(integers));
-                break;
-            case 4:
-                System.out.println();
-                System.out.println(Polyndrome.checkIsTheWordAPolindrom(inputSting));
-                break;
-            case 5:
-                System.out.println(StringReverse.stringReverse(inputSting));
-                break;
-            default:
-                System.out.println("The other operation was chosen");
-                break;
-        }
+    } catch (InputMismatchException e){
+        System.out.println("You type incorrect number or character !!");
+    }
     }
 }
