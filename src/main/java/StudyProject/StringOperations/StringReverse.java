@@ -1,4 +1,4 @@
-package JavaMethods;
+package StudyProject.StringOperations;
 
 public class StringReverse {
 

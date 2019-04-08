@@ -1,6 +1,8 @@
-package JavaMethods;
+package TrainingClasses;
 
-public class Fish extends  Pet{
+import TrainingClasses.Pet;
+
+public class Fish extends Pet {
 
     int currentDepth = 0;
 

@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static JavaMethods.Polyndrome.checkIsTheWordAPolindrom;
+import static StudyProject.StringOperations.Polyndrome.checkIsTheWordAPolindrom;
 
 public class PolyndromTest {
 

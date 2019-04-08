@@ -1,4 +1,6 @@
-package JavaMethods;
+package TrainingClasses;
+
+import TrainingClasses.ReportTab;
 
 public class ReportTabRun {
 

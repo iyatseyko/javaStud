@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static JavaMethods.MathOperation.*;
+import static StudyProject.MathOperations.MathOperation.*;
 
 public class MathOpetationsTest {
 

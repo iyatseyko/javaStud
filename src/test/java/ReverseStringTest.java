@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static JavaMethods.StringReverse.stringReverse;
+import static StudyProject.StringOperations.StringReverse.stringReverse;
 
 public class ReverseStringTest {
 

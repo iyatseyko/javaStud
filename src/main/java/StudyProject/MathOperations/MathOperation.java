@@ -1,4 +1,4 @@
-package JavaMethods;
+package StudyProject.MathOperations;
 
 public class MathOperation {
 

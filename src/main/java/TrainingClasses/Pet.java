@@ -1,4 +1,4 @@
-package JavaMethods;
+package TrainingClasses;
 
 public class Pet {
 

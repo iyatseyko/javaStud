@@ -1,4 +1,7 @@
-package JavaMethods;
+package TrainingClasses;
+
+import TrainingClasses.Fish;
+import TrainingClasses.Pet;
 
 public class PetMaster {
 
