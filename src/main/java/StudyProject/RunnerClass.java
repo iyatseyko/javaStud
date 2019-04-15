@@ -2,6 +2,7 @@ package StudyProject;
 
 import StudyProject.EmployeeCreation.Employee;
 import StudyProject.EmployeeCreation.EmployeeComparator;
+import StudyProject.EmployeeCreation.TakeUniqueAndDuplicateEmployee;
 import StudyProject.MathOperations.MathOperation;
 import StudyProject.StringOperations.Polyndrome;
 import StudyProject.StringOperations.StringReverse;
@@ -86,11 +87,24 @@ public class RunnerClass {
                 } else if (number == 3){
                     condition = true;
                     System.out.println("You choose to read employee info from CSV file\n");
-                    String pathName = "/Users/irayatseyko/IdeaProjects/JavaStudyProject/src/main/resources/employee.csv";
-                    List<Employee> employee = readEmployeeDataFromCSV(pathName);
+                    System.out.println("Please, type a name of the file from which you want to read employee's data");
+                    String basePath = "/home/irynayatseiko/IdeaProjects/javaStudy/src/main/resources/";
+                    scan.nextLine();
+                    String pathName = basePath.concat(scan.nextLine());
+                    List<Employee> employee1 = readEmployeeDataFromCSV(pathName);
+                    Collections.sort(employee1, new EmployeeComparator());
+                    for (Employee e : employee1)
+                    { System.out.println(e); }
 
-                    Collections.sort(employee, new EmployeeComparator());
-                    for (Employee e : employee)
+                    pathName = basePath.concat(scan.nextLine());
+                    List<Employee> employee2 = readEmployeeDataFromCSV(pathName);
+                    Collections.sort(employee2, new EmployeeComparator());
+                    for (Employee e : employee2)
+                    { System.out.println(e); }
+
+                    List<Employee> uniqueEmployee = TakeUniqueAndDuplicateEmployee.takeUniqueEmployee(employee1, employee2);
+
+                    for (Employee e : uniqueEmployee)
                     { System.out.println(e); }
                 } else {
                     System.out.println("Sorry, but you type incorrect number !!\nPlease, try again");

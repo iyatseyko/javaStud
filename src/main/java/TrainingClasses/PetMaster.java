@@ -12,20 +12,14 @@ public class PetMaster {
         petReaction = myPet.say(" Chick-chirik");
         System.out.println(petReaction);
         myPet.sleep();
-        String petTalk = myPet.say(" Hello" );
+        String petTalk = myPet.say(" Hello");
         System.out.println(petTalk);
         Fish myFish = new Fish(10);
         myFish.dive(25);
         myFish.dive(100);
         myFish.sleep();
 
-        String fishTalk = myFish.say("Hello" );
+        String fishTalk = myFish.say("Hello");
         System.out.println(fishTalk);
-
-
-        StringBuilder bl;
-        StringBuffer bf;
-
-
     }
 }
