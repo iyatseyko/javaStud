@@ -3,7 +3,7 @@ package StudyProject.EmployeeCreation;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 
-public class ComparatorByBirthDate implements Comparator<Employee> {
+public class EmployeeComparatorByBirthDate implements Comparator<Employee> {
 
 
     @Override
