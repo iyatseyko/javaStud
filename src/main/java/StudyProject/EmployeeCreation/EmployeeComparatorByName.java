@@ -2,7 +2,7 @@ package StudyProject.EmployeeCreation;
 
 import java.util.Comparator;
 
-public class EmployeeComparator implements Comparator<Employee> {
+public class EmployeeComparatorByName implements Comparator<Employee> {
 
     @Override
     public int compare(Employee e1, Employee e2) {

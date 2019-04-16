@@ -1,7 +1,8 @@
 package StudyProject;
 
+import StudyProject.EmployeeCreation.ComparatorByBirthDate;
 import StudyProject.EmployeeCreation.Employee;
-import StudyProject.EmployeeCreation.EmployeeComparator;
+import StudyProject.EmployeeCreation.EmployeeComparatorByName;
 import StudyProject.EmployeeCreation.TakeUniqueAndDuplicateEmployee;
 import StudyProject.MathOperations.MathOperation;
 import StudyProject.StringOperations.Polyndrome;
@@ -88,23 +89,33 @@ public class RunnerClass {
                     condition = true;
                     System.out.println("You choose to read employee info from CSV file\n");
                     System.out.println("Please, type a name of the file from which you want to read employee's data");
-                    String basePath = "/home/irynayatseiko/IdeaProjects/javaStudy/src/main/resources/";
+                    String basePath = "/Users/irayatseyko/IdeaProjects/JavaStudyProject/src/main/resources/";
                     scan.nextLine();
                     String pathName = basePath.concat(scan.nextLine());
                     List<Employee> employee1 = readEmployeeDataFromCSV(pathName);
-                    Collections.sort(employee1, new EmployeeComparator());
+                    Collections.sort(employee1, new ComparatorByBirthDate());
                     for (Employee e : employee1)
                     { System.out.println(e); }
+                    System.out.println("Please, type a name of the second file from which you want to read employee's data");
 
                     pathName = basePath.concat(scan.nextLine());
                     List<Employee> employee2 = readEmployeeDataFromCSV(pathName);
-                    Collections.sort(employee2, new EmployeeComparator());
+                    Collections.sort(employee2, new EmployeeComparatorByName());
                     for (Employee e : employee2)
                     { System.out.println(e); }
 
                     List<Employee> uniqueEmployee = TakeUniqueAndDuplicateEmployee.takeUniqueEmployee(employee1, employee2);
 
+                    System.out.println("\nThis is uniqueEmployee list\n");
+
                     for (Employee e : uniqueEmployee)
+                    { System.out.println(e); }
+
+                    List<Employee> duplicateList = TakeUniqueAndDuplicateEmployee.takeDuplicateEmployee(employee1, employee2);
+
+                    System.out.println("\nThis is duplicateList list\n");
+
+                    for (Employee e : duplicateList)
                     { System.out.println(e); }
                 } else {
                     System.out.println("Sorry, but you type incorrect number !!\nPlease, try again");

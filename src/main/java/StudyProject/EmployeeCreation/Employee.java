@@ -64,4 +64,15 @@ public class Employee {
         result = 31 * result + birthDate.hashCode();
         return result;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Employee) {
+            return ((Employee) obj).lastName.equals(lastName)
+                    && ((Employee) obj).firstName.equals(firstName)
+                    && ((Employee) obj).birthDate.toString().equals(birthDate.toString())
+                    && ((Employee) obj).id == id;
+        }
+        return false;
+    }
 }
