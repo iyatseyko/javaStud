@@ -4,21 +4,26 @@ import java.util.Comparator;
 
 public class ComparatorFactory {
 
-    public Comparator<Employee> createComparator (String comparatorType) {
+    public Comparator<Employee> createComparator (EmployeeField comparatorType) {
 
         if(comparatorType == null){
             return null;
         }
-        if(comparatorType.equalsIgnoreCase("id")){
+        if(comparatorType==EmployeeField.ID){
             return new EmployeeComparatorById();
 
-        } else if(comparatorType.equalsIgnoreCase("Name")){
+        } else if(comparatorType==EmployeeField.NAME){
             return new EmployeeComparatorByName();
 
-        } else if(comparatorType.equalsIgnoreCase("BirthDate")){
+        } else if(comparatorType==EmployeeField.BIRTH_DATE){
             return new EmployeeComparatorByBirthDate();
         }
-
         return null;
+    }
+
+    public enum EmployeeField {
+        ID,
+        NAME,
+        BIRTH_DATE
     }
 }

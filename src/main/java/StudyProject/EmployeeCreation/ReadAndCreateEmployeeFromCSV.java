@@ -10,11 +10,13 @@ import java.util.List;
 
 public class ReadAndCreateEmployeeFromCSV {
 
-    public static List<Employee> readEmployeeDataFromCSV(String pathName) {
+    static final String BASE_PATH = "/Users/irayatseyko/IdeaProjects/JavaStudyProject/src/main/resources/%s.csv";
+
+    public static List<Employee> readEmployeeDataFromCSV(String fileName) {
         List<Employee> employees = new ArrayList<Employee>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(pathName));
+            BufferedReader br = new BufferedReader(new FileReader(String.format(BASE_PATH,fileName)));
             String line = br.readLine();
 
             while (line != null) {
