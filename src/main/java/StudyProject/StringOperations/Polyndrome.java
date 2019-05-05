@@ -4,8 +4,8 @@ public class Polyndrome {
 
     public static Boolean checkIsTheWordAPolindrom(String word)  {
 
-        if (word == null || word == ""){
-            return false;
+        if (word.equals(null)|| word.equals("")){
+            throw new NullPointerException("inputString cannot be null");
         }
             char[] arr = word.toCharArray();
             int length = arr.length - 1;

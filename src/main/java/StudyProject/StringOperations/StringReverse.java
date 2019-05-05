@@ -4,9 +4,10 @@ public class StringReverse {
 
     public static String stringReverse (String inputString) {
 
-        if (inputString == null || inputString == "") {
-            return "";
+        if (inputString.equals(null) || inputString.equals("")) {
+            throw new NullPointerException("inputString cannot be null");
         }
+
         int length = inputString.length();
         String reverseString = "";
 

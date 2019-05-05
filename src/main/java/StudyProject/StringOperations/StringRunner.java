@@ -1,32 +1,47 @@
 package StudyProject.StringOperations;
 
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 
 public class StringRunner {
+    static Logger logger = Logger.getLogger(StringRunner.class);
 
     public static void stringRun() {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("You choose operations with string");
-        System.out.println("\nEnter 1 to choose Polindrome, 2 for StringReverse");
-        System.out.println("\nPlease, type a string value");
-        scan.nextLine();
-        String inputSting = scan.nextLine();
 
         boolean operationNumber = false;
         while (operationNumber == false) {
+            System.out.println("\nEnter 1 to choose Polindrome, 2 for StringReverse");
             int operation = scan.nextInt();
+            String inputString;
             switch (operation) {
                 case 1:
                     operationNumber = true;
-                    System.out.println(Polyndrome.checkIsTheWordAPolindrom(inputSting));
+                    System.out.println("\nPlease, type a string value");
+                    scan.nextLine();
+                    inputString = scan.nextLine();
+                    if(Polyndrome.checkIsTheWordAPolindrom(inputString)){
+                        System.out.println("Current string is a polyndrome\nFINISH");
+                    } else {
+                        System.out.println("Current string is NOT a polyndrome\nFINISH");
+                    }
                     break;
                 case 2:
                     operationNumber = true;
-                    System.out.println(StringReverse.stringReverse(inputSting));
+                    System.out.println("\nPlease, type a string value");
+                    scan.nextLine();
+                    inputString = scan.nextLine();
+                    System.out.println("Resverse string is - ".concat(StringReverse.stringReverse(inputString)).concat("\nFINISH"));
+                    break;
+                case 0:
+                    operationNumber = true;
+                    System.out.println("EXIT");
                     break;
                 default:
-                    System.out.println("Sorry, but you type incorrect number !!\nPlease, try again");
+                    logger.error("Sorry, but you type incorrect number !!\nPlease, try again");
                     break;
             }
         }
