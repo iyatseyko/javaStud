@@ -51,7 +51,7 @@ public class PetMaster {
         li.put(38, "obj38");
 
 
-        System.out.println(li.entrySet());
+        System.out.println("ENTRY" + li.entrySet());
 
         li.put(10, "obj38");
         li.put(38, "AAAAAAAAA");

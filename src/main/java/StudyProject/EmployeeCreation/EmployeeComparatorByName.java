@@ -9,6 +9,6 @@ public class EmployeeComparatorByName implements Comparator<Employee> {
         int result = e1.getLastName().compareTo(e2.getLastName());
         if (result != 0)
             return result;
-        return e1.getFirstName().compareToIgnoreCase(e2.getLastName());
+        return e1.getFirstName().compareTo(e2.getLastName());
     }
 }

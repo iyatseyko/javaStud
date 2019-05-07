@@ -9,9 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReadAndCreateEmployeeFromCSV {
-
-    static final String BASE_PATH = "/Users/irayatseyko/IdeaProjects/JavaStudyProject/src/main/resources/%s.csv";
-
+    public static final  String BASE_PATH = "/home/irynayatseiko/IdeaProjects/javaStudy/src/main/resources/%s.csv";
     public static List<Employee> readEmployeeDataFromCSV(String fileName) {
         List<Employee> employees = new ArrayList<Employee>();
 
