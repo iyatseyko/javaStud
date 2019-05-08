@@ -11,15 +11,17 @@ import org.apache.log4j.Logger;
 public class RunnerClass {
     static Logger logger = Logger.getLogger(RunnerClass.class);
 
+    public static String START_MESSAGE =  "If you want to use math operations - please, type 1; \nIf you want Polyndrome or StringReverse methods - type 2;\nIf you want read employee info from CSV file - type 3;\nTo EXIT from the program - type 0\nTo COME BACK TO PREVIOUS STEP - type 4";
+    public static boolean isException;
+
     public static void main(String[] args) {
 
-    boolean isException;
         do {
             Scanner scan = new Scanner(System.in);
-            System.out.println("If you want to use math operations - please, type 1; \nIf you want Polyndrome or StringReverse methods - type 2;\nIf you want read employee info from CSV file - type 3;\nTo EXIT from the program - type 0");
+            System.out.println(START_MESSAGE);
             isException = false;
+            boolean condition = false;
             try {
-                boolean condition = false;
 
                 while (condition == false) {
                     int number = scan.nextInt();
