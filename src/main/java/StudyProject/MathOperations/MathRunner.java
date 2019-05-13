@@ -13,29 +13,30 @@ public class MathRunner {
 
     public static void mathRun() {
         System.out.println("You choose math operations with numbers");
-        System.out.println("\nEnter 1 to choose min operation, 2 for max, 3 for average");
 
-        boolean operationNumber = false;
-        while (operationNumber == false) {
+        boolean operationNumber = true;
+        while (operationNumber) {
+            String message = "\nEnter 1 to choose min operation, 2 for max, 3 for average";
+            System.out.println(message);
             int operation = scan.nextInt();
 
             switch (operation) {
                 case 1:
-                    System.out.println("\nThe minimum value is ".concat(Integer.toString(MathOperation.min(typeArray()))).concat("\n\nEnter 1 to choose min operation, 2 for max, 3 for average"));
+                    System.out.println("\nThe minimum value is ".concat(Integer.toString(MathOperation.min(typeArray()))));
                     break;
                 case 2:
-                    System.out.println("\nThe maximum value is ".concat(Integer.toString(MathOperation.max(typeArray()))).concat("\n\nEnter 1 to choose min operation, 2 for max, 3 for average"));
+                    System.out.println("\nThe maximum value is ".concat(Integer.toString(MathOperation.max(typeArray()))));
                     break;
                 case 3:
-                    System.out.println("\nThe average value is ".concat(Double.toString(MathOperation.average(typeArray()))).concat("\n6Enter 1 to choose min operation, 2 for max, 3 for average"));
+                    System.out.println("\nThe average value is ".concat(Double.toString(MathOperation.average(typeArray()))));
                     break;
                 case 4:
-                    operationNumber = true;
+                    operationNumber = false;
                     System.out.println("YOU COME BACK TO PREVIOUS STEP");
-                    goBack();
+                    RunnerClass.goBack();
                     break;
                 case 0:
-                    operationNumber = true;
+                    operationNumber = false;
                     System.out.println("EXIT");
                     break;
                 default:
@@ -57,11 +58,5 @@ public class MathRunner {
         }
         System.out.print("Your array is ".concat(Arrays.toString(integers)));
         return integers;
-    }
-
-    private static boolean goBack(){
-        RunnerClass.isException=true;
-        return RunnerClass.isException;
-
     }
 }

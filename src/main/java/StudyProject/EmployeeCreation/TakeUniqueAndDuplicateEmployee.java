@@ -18,13 +18,7 @@ public class TakeUniqueAndDuplicateEmployee{
     }
 
     public static <E> List<E> takeDuplicateEmployee(List<E> input1, List<E> input2) {
-
-        List<E> duplicateList = new ArrayList<>();
-        for (E item : input1) {
-            if (input2.contains(item)) {
-                duplicateList.add(item);
-            }
-        }
-        return duplicateList;
+       input1.retainAll(input2);
+       return input1;
     }
 }

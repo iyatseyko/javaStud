@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 public class RunnerClass {
     static Logger logger = Logger.getLogger(RunnerClass.class);
 
-    public static String START_MESSAGE =  "If you want to use math operations - please, type 1; \nIf you want Polyndrome or StringReverse methods - type 2;\nIf you want read employee info from CSV file - type 3;\nTo EXIT from the program - type 0\nTo COME BACK TO PREVIOUS STEP - type 4";
+    public static final String START_MESSAGE =  "If you want to use math operations - please, type 1; \nIf you want Polyndrome or StringReverse methods - type 2;\nIf you want read employee info from CSV file - type 3;\nTo EXIT from the program - type 0\nTo COME BACK TO PREVIOUS STEP - type 4";
     public static boolean isException;
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class RunnerClass {
             boolean condition = false;
             try {
 
-                while (condition == false) {
+                while (!condition) {
                     int number = scan.nextInt();
                     switch (number) {
                         case 1:
@@ -55,5 +55,9 @@ public class RunnerClass {
                 logger.error("It is empty string!!\nPlease, try again");
         }
         } while (isException);
+    }
+
+    public static boolean goBack(){
+        return isException = true;
     }
 }

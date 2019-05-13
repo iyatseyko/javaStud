@@ -6,11 +6,9 @@ public class Fish extends Pet {
 
     int currentDepth = 0;
 
-    Fish(int startingPosition){
+    Fish(int startingPosition, String name){
+        super(name);
         currentDepth = startingPosition;
-    }
-
-    Fish(){
     }
 
     public int dive(int howDeep){

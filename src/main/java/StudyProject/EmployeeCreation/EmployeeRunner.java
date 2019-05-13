@@ -21,8 +21,8 @@ public class EmployeeRunner {
         List<Employee> employee1 = readEmployeeDataFromCSV("employee");
         List<Employee> employee2 = readEmployeeDataFromCSV("employee2");
 
-        boolean notError = false;
-        while (notError == false) {
+        boolean notError = true;
+        while (notError) {
             System.out.println("\n\nIn which order you want to sort employee data?\nYou can sort employee by id, name or birth date\nTo choose one of the variants, please, type 'id', 'name' or 'birth date'");
             String sortOrder = scan.nextLine();
             switch (sortOrder) {
@@ -42,15 +42,15 @@ public class EmployeeRunner {
                     System.out.println("EXIT");
                     return;
                 case "4":
-                    notError = true;
+                    notError = false;
                     System.out.println("YOU COME BACK TO PREVIOUS STEP");
-                    goBack();
+                    RunnerClass.goBack();
                     break;
                 default:
                     logger.error("You type incorrect variant. Please, try again");
             }
 
-            if (notError == false) {
+            if (notError == true) {
                 System.out.println("Employee from first file\n");
                 for (Employee e : employee1) {
                     System.out.println(e);
@@ -72,10 +72,5 @@ public class EmployeeRunner {
                 }
             }
         }
-    }
-
-    private static boolean goBack(){
-        RunnerClass.isException=true;
-        return RunnerClass.isException;
     }
 }
